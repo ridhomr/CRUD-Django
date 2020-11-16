@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col">
+        <h1 class="m-0">Data Barang</h1>
+      </div>
+      <div class="col text-right">
+        <a class="btn btn-primary" href="/barang/create">Tambah</a>
+      </div>
+    </div>
+
+    <div class="table-responsive mt-3">
+      <table class="table table-hover table-striped">
+        <tr>
+          <th>Nama</th>
+          <th>Harga</th>
+          <th>Action</th>
+        </tr>
+
+        {% for d in data %}
+        <tr>
+          <td>{{d.nama}}</td>
+          <td>{{d.harga}}</td>
+          <td>
+            <a class="btn btn-success btn-sm" href="{{d.id}}/update">Edit</a>
+            <a class="btn btn-danger btn-sm" href="{{d.id}}/delete">Hapus</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-3">
+    <h1 class="m-0">Ubah Data Barang</h1>
+
+    <form action="" method="POST" class="mt-3">
+      {% csrf_token %}
+
+      <label class="mt-3">Nama</label>
+      <div class="input-group">
+        <input type="text" disabled class="form-control" value="{{data.barang.nama}}" />
+      </div>
+
+      <label class="mt-3">Harga</label>
+      <div class="input-group">
+        <input type="number" disabled class="form-control" value="{{data.barang.harga}}" />
+      </div>
+
+      <label class="mt-3">Qty</label>
+      <div class="input-group">
+        <input type="number" min="0" name="qty" class="form-control" value="{{data.qty}}" />
+      </div>
+
+      <div class="input-group mt-3">
+        <button class="btn btn-primary">Simpan</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}

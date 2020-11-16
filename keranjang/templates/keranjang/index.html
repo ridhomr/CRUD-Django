@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-3">
+    <h1 class="m-0">Data Keranjang</h1>
+
+    <div class="table-responsive mt-3">
+      <table class="table table-hover table-striped">
+        <tr>
+          <th>Nama</th>
+          <th>Harga</th>
+          <th>Qty</th>
+          <th>Sub-Total</th>
+          <th>Action</th>
+        </tr>
+
+        {% for d in data %}
+        <tr>
+          <td>{{d.barang.nama}}</td>
+          <td>{{d.barang.harga}}</td>
+          <td>{{d.qty}}</td>
+          <td>{{d.total}}</td>
+          <td>
+            <a class="btn btn-success btn-sm" href="{{d.id}}/update">Edit</a>
+            <a class="btn btn-danger btn-sm" href="{{d.id}}/delete">Hapus</a>
+          </td>
+        </tr>
+        {% endfor %}
+
+        <tr>
+          <td colspan="3" class="text-right"><b>Total</b></td>
+          <td>{{total}}</td>
+          <td></td>
+        </tr>
+
+      </table>
+    </div>
+  </div>
+{% endblock %}
